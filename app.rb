@@ -4,7 +4,7 @@ require 'json'
 
 #models
 require './models/collection'
-require './models/time_data'
+require './models/data_time'
 
 get '/' do
   erb :"index"
@@ -20,8 +20,15 @@ get '/example' do
   ].to_json
 end
 
+get '/time' do
+  data_times = DataTime.all
+  p (data_times)
+end
+
 post '/time' do
-  "You said #{params[:time]}"
+  p params
+  a = DataTime.new(start_date: DateTime.now - 2.hour, end_date: DateTime.now, seconds: 2.hour)
+  a.save
 end
 
 get '/tweets/?:category?' do
