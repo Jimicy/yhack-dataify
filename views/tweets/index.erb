@@ -1,0 +1,57 @@
+    <nav role="navigation" class="navbar navbar-default">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">Twitter</a>
+        </div>
+    </nav>
+    <div class='container'>
+      <div class='row'>
+        <div class="col-lg-2">
+          <ul class="nav nav-list">
+          <div class='container'><h4>Categories</h4></div>
+              <li><a href="/tweets/events" data-toggle="tab">Events</a></li>
+              <li><a href="/tweets/tools" data-toggle="tab">Github/Tools</a></li>
+              <li><a href="/tweets/books" data-toggle="tab">Books</a></li>
+              <li><a href="/tweets/blogs" data-toggle="tab">Blogs</a></li>
+          </ul>
+              </div>
+        <div class="col-lg-8">
+          <div class="jumbotron">
+            <div class="container">
+              <div class="col-lg-6">
+                <p>Sort By:</p>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                  Favorites
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                     Retweets
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+              <br>
+                <div class="container">
+                  <select name=select1>
+                  <option>Descending</option>
+                  <option>Ascending</option>
+                  </select>
+                </div>
+                <br>
+                <p>City: Toronto</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="twt-border">
+<% @tweets.each do |tweet| %>
+  <%= tweet.html%>
+<% end %>
+
+</div>
+</div>
+</div>
