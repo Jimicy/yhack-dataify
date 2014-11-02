@@ -20,6 +20,11 @@ get '/example' do
   ].to_json
 end
 
+get '/collections' do
+  @collections = Collection.all
+  erb :"collections/index"
+end
+
 get '/time' do
   data_times = DataTime.all
   p (data_times)
@@ -27,7 +32,7 @@ end
 
 post '/time' do
   p params
-  a = DataTime.new(start_date: DateTime.now - 2.hour, end_date: DateTime.now, seconds: 2.hour)
+  a = DataTime.new(start_date: params[:start_date], end_date: params[:end_date], seconds: 2.hour)
   a.save
 end
 
